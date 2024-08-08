@@ -58,9 +58,7 @@ def all_recipies(**kwargs):
 
 
 def get_all_user_recipies(user):
-    return filter_objects(objects=RecipeModel.objects,
-                          user=user,
-                          order_by=('-id', '-create_date',))
+    return filter_objects(objects=RecipeModel.objects, user=user, order_by=('-id', '-create_date',))
 
 
 def get_recipe_by_slug(slug):
