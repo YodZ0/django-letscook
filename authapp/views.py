@@ -42,8 +42,3 @@ def register_user(request):
         form = RegisterForm()
 
     return render(request=request, template_name='authapp/register-page.html', context={'form': form})
-
-
-def test_view(request):
-    context = {}
-    return render(request=request, template_name='authapp/test.html', context=context)
