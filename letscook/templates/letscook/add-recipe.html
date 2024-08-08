@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<title>Add recipe | Let's cook!</title>
+{% endblock header %}
+
+{% block content %}
+<div class="container">
+  <h3 class="title">Add new recipe</h3>
+  <form method="post" class="form recipe-form">
+    {% csrf_token %}
+    <div class="form-add-wrapper">
+      <div class="form-block">
+        <div class="form-field">
+          <label for="recipe__title">Title</label><br>
+          <input type="text" id="recipe__title" name="recipe__title" required>
+        </div>
+        
+        <div class="form-field">
+          <label for="recipe__video_url">Video</label><br>
+          <input type="url" id="recipe__video_url" name="recipe__video_url">
+        </div>
+        
+        <div class="form-field">
+          <label for="recipe__description">Description</label><br>
+          <textarea id="recipe__description" name="recipe__description" required></textarea>
+        </div>
+        
+        <div class="form-field checkbox-list">
+          {% for tag in tags %}
+          <div class="checkbox-component">
+            <input type="checkbox" value="{{ tag }}" name="recipe__tags" id="{{ tag }}">
+            <label for="{{ tag }}">{{ tag }}</label>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      
+      <div class="form-block">
+        <div class="block-header"><h4 class="title">Select ingredients</h4></div>
+        <div class="table-block">
+          <table class="ingredientsTable" id="ingredients_table">
+            <thead class="ingredientsTableHead">
+            <tr>
+              <th>Ingredient</th>
+              <th>Count</th>
+              <th>Units</th>
+              <th>
+                <button class="table-btn" type="button" onclick="add()">Add</button>
+              </th>
+            </tr>
+            </thead>
+            <tbody class="ingredientsTableBody" id="ingredients-body">
+            <tr class="ingredient-row" id="ingredient-row-1">
+              <td class="ingredient-selector">
+                <select id="ingredient-selector-1" name="ingredients" required>
+                  <option value="">Выберите ингредиент</option>
+                  {% for ingredient in ingredients %}
+                  <option value="{{ ingredient.name }}">{{ ingredient }}</option>
+                  {% endfor %}
+                </select>
+              </td>
+              <td class="table-num-input"><input type="number" name="ingredient__count" step="0.1"/></td>
+              <td class="table-unit">unit</td>
+              <td>
+                <button class="table-btn" type="button" onclick="del(this)">delete</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    
+    <div class="form-add-wrapper">
+      <div class="recipeSteps-block">
+        <table class="recipeSteps" id="recipe_table">
+          <thead class="recipeStepsHead">
+          <tr>
+            <th class="num">№</th>
+            <th class="step-description">Step description</th>
+            <th>
+              <button class="table-btn" type="button" onclick="addRow()">Add step</button>
+            </th>
+          </tr>
+          </thead>
+          <tbody class="recipeStepsBody" id="recipe-steps-body">
+          <tr class="recipeSteps__row" id="recipe-step-1">
+            <td class="num">1</td>
+            <td class="step-description">
+            <textarea class="table-text-input" name="recipe__steps" id="recipe-step-text-1"
+                      placeholder="Write a step..."></textarea>
+            </td>
+            <td>
+              <button class="table-btn" type="button" onclick="deleteRow(this)">Delete</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <button class="btn" type="button" onclick="submitForm()">Save</button>
+  </form>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'scripts/submit.js' %}"></script>
+<script src="{% static 'scripts/steps-table.js' %}"></script>
+<script src="{% static 'scripts/ingredients-table.js' %}"></script>
+{% endblock scripts %}

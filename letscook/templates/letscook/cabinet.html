@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<title>My recipies | Let's cook!</title>
+{% endblock header %}
+
+{% block content %}
+<div class="user-info">
+  <p>Username: {{ user.username }}</p>
+  <p>Recipies count: {{ count }}</p>
+</div>
+<hr>
+<div>
+  <div style="display: flex; align-items: center;">
+    <h3 class="title">My recipies</h3>
+    <p class="tag tag-btn"><a href="{% url 'add-recipe' %}">Add new recipe</a></p>
+    <hr>
+  </div>
+  {% if recipies %}
+  <div class="container">
+    {% for recipe in recipies %}
+    <div class="recipe__content">
+      <h3 class="title"><a href="/detail/{{recipe.slug}}">{{ recipe.title }}</a></h3>
+      <p class="description">{{ recipe.description }}</p>
+      <div class="block-footer">
+        <span class="date">{{ recipe.create_date }}</span>
+        <div class="footer-btn">
+          {% csrf_token %}
+          <input type="hidden" value="{{ recipe.slug }}"/>
+          <button class="btn small" onclick="AddToCart(this)">Add to cart</button>
+        </div>
+      </div>
+    </div>
+    {% if not forloop.last %}
+    <hr>
+    {% endif %}
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="empty-content">
+    <h3>There is no recipies...</h3>
+    <p class="btn small"><a href="{% url 'add-recipe' %}">Add new recipe</a></p>
+  </div>
+  {% endif %}
+</div>
+
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'scripts/cart.js' %}"></script>
+{% endblock scripts %}

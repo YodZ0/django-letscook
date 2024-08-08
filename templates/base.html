@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}">
+  {% block header %}
+  {% endblock header %}
+</head>
+<body>
+{% include 'includes/navbar.html' %}
+
+{% if messages%}
+<div class="messages">
+  {% for message in messages %}
+  <div {% if message.tags %} class="message-{{ message.tags }}" {% endif %}>
+    <h4>{{ message }}</h4>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<main id="main">
+  {% block content %}
+  {% endblock content %}
+</main>
+
+{% block scripts %}
+{% endblock scripts %}
+
+{% include 'includes/footer.html' %}
+</body>
+</html>

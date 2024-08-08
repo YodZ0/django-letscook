@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+<title>{{ title }} | Let's cook!</title>
+{% endblock header %}
+
+{% block content %}
+<div class="container">
+  <div class="content-block-wrapper">
+    <div class="content-block">
+      
+      <h3 class="title">{{ title }}</h3>
+      
+      {% if tags %}
+      <div class="block-tags">
+        {% for tag in tags %}
+        <p class="tag"><a href="#">{{ tag }}</a></p>
+        {% endfor %}
+      </div>
+      {% endif %}
+      
+      <div>
+        <h4 class="title">Description:</h4>
+        <p class="description">{{ description }}</p>
+      </div>
+    </div>
+    
+    <div class="content-block">
+      <h4 class="title">Ingredients:</h4>
+      <div>
+        {% for ingredient in ingredients %}
+        <p>
+          <span>{{ ingredient.ingredient.name }} - </span>
+          <span>{{ ingredient.count }} - </span>
+          <span>{{ ingredient.ingredient.unit }}</span>
+        </p>
+        {% endfor %}
+      </div>
+    </div>
+    
+  </div>
+  {% if video %}
+  <div class="video-block">
+    <h4>Video</h4>
+    <div class="video">
+      <iframe width="560" height="315"
+              src="{{ video }}"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+  {% endif %}
+  
+  <div>
+    <h4 class="title ">Recipe steps:</h4>
+    <ol class="step-list">
+      {% for step in recipe_steps %}
+      <li class="step-text">{{ step }}</li>
+      {% endfor %}
+    </ol>
+  </div>
+  
+  <div class="block-footer">
+    <span>Created by: </span>
+    <span class="creator"><a href="#">{{ user }}</a></span> |
+    <span class="date">{{ create_date }}</span>
+  </div>
+  
+  {% if is_author %}
+  <div class="footer-btn">
+    {% csrf_token %}
+    <input type="hidden" value="{{ slug }}" id="slug"/>
+    <button class="btn" onclick="">Edit</button>
+    <button class="btn red" type="button" onclick="deleteRecipe()">Delete</button>
+  </div>
+  {% endif %}
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'scripts/delete-recipe.js' %}"></script>
+{% endblock scripts %}

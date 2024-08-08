@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<title>Login</title>
+{% endblock header %}
+
+{% block content %}
+<div class="form-wrapper">
+  <h1>Login</h1>
+  <form method="post" class="form" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="form-field">
+      <label for="{{ form.username.id_for_label }}">Username</label><br>
+      {{ form.username }}
+    </div>
+    
+    <div class="form-field">
+      <label for="{{ form.password.id_for_label }}">Password</label><br>
+      {{ form.password }}
+    </div>
+    
+    <div class="form-btn-wrapper">
+      <button type="submit" class="btn">Submit</button>
+    </div>
+  </form>
+</div>
+{% endblock content %}

@@ -1,0 +1,24 @@
+{% load static %}
+<div class="top-navbar">
+  <div class="nav-img-wrapper">
+    <div class="nav-img">
+      <a href="{% url 'catalog' %}"><img src="{% static 'assets/lets-cook_logo.png' %}" alt="logo"></a>
+    </div>
+  </div>
+  <div class="nav-links-wrapper">
+    <nav class="nav-links">
+      <a href="{% url 'catalog' %}">CATALOG</a>
+      <a href="{% url 'cabinet' %}">MY RECIPIES</a>
+      <a href="{% url 'cart' %}">CART</a>
+    </nav>
+  </div>
+  <div class="nav-tail">
+    {% if request.user.is_anonymous %}
+      <span><a href="{% url 'login' %}">Login</a></span>
+      <span> | </span>
+      <span><a href="{% url 'register' %}">Register</a></span>
+    {% elif user.is_authenticated %}
+      <span><a href="{% url 'logout' %}">Logout</a></span>
+    {% endif %}
+  </div>
+</div>

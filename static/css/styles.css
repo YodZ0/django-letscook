@@ -1,0 +1,556 @@
+/* VARIABLES */
+:root {
+    --primary-color: #607D8B;
+    --accent-color: #295E78;
+}
+
+/* BODY START*/
+html, body {
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+}
+/* BODY END */
+
+/* NAVBAR START*/
+.top-navbar {
+  background-color: var(--primary-color);
+  height: 75px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-img-wrapper {
+  display: flex;
+  width: 200px;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.nav-img img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.nav-links-wrapper {
+  height: 100%;
+  display: flex;
+  flex-grow: 4;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.nav-links a {
+  color: white;
+  font-family: Arial;
+  text-decoration: none;
+  padding: 20px 10px;
+}
+
+.nav-links a:hover {
+  color: #FFA726;
+  text-decoration: underline;
+}
+
+.nav-tail {
+  color: white;
+  height: 100%;
+  display: flex;
+  flex-grow: 0.2;
+  align-items: center;
+  justify-content: left;
+}
+
+.nav-tail a {
+  color: white;
+  font-family: Arial;
+  text-decoration: none;
+  padding: 20px 10px;
+}
+
+.nav-tail a:hover {
+  color: #FFA726;
+  text-decoration: underline;
+}
+/* NAVBAR END*/
+
+/* MESSAGES START*/
+.messages {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.messages h4 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.message-success,
+.message-error,
+.message-info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-success {
+  color: green;
+  background-color: #CEF8CE;
+}
+
+.message-error {
+  color: #A30808;
+  background-color: #F2A9A9;
+}
+
+.message-info {
+  color: grey;
+  background-color: #EFEBEB;
+}
+/* MESSAGES END*/
+
+/* MAIN START*/
+main {
+  background-color: #FFFFFF;
+  margin: 0px 300px;
+  font-family: Arial;
+}
+
+#main {
+  flex: 1;
+  min-height: calc(100vh - 60px - 75px);
+}
+/* MAIN END */
+
+/* FOOTER START*/
+footer {
+  font-family: Arial;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+  height: 60px;
+  width: 100%;
+}
+/* FOOTER END*/
+
+/* FORM START*/
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 50px 0px 100px 0px;
+}
+
+.form-field {
+  margin: 10px 0px 15px 0px;
+}
+
+.form,
+.form-wrapper h1 {
+  font-family: Arial;
+}
+
+.form input {
+  width: 300px;
+}
+
+.form-btn-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial;
+  font-size: 16px;
+  color: white;
+  height: 50px;
+  width: 200px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+}
+
+.btn:hover {
+  background-color: #6B8A99;
+}
+
+.small {
+  height: 30px;
+  width: auto;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.red {
+  background-color: #9C0C0C;
+}
+.red:hover {
+  background-color: #AB3E3E;
+}
+
+.help-text {
+  font-size: 14px;
+  color: #838383;
+}
+
+.form-add-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.form-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.table-block {
+  width: 100%;
+  max-height: 270px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+
+.block-header {
+  display: flex;
+  justify-content: center;
+}
+
+.ingredientsTable tr {
+  display: table-row;
+  text-align: center;
+}
+
+.table-num-input input {
+  width: 100px;
+}
+/* FORM END*/
+
+/* CATALOG START*/
+.description {
+  text-align: justify;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.block-tags {
+  display: flex;
+  align-items: center;
+  margin: 0px;
+}
+
+.tag {
+  margin: 0px;
+  margin-right: 5px;
+  padding: 3px;
+  border-radius: 5px;
+  color: white;
+  background-color: #607D8B;
+}
+
+.tag a {
+  text-decoration: none;
+  color: white;
+}
+
+.tag:hover {
+  background-color: var(--accent-color);
+}
+
+.title {
+  color: var(--accent-color);
+}
+
+.title a:hover {
+  text-decoration: underline;
+}
+
+.title a, .title a:visited {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.block-footer {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.footer-btn {
+  display: flex;
+  gap: 10px;
+}
+
+.creator, .creator a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.creator a:visited {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.creator a:hover {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+.date {
+  color: var(--accent-color);
+}
+
+.container {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* CATALOG END*/
+
+/* RECIPE START*/
+.recipe__content {
+  margin: 0px;
+  padding: 0px 30px 0px;
+  background-color: rgba(134, 155, 166, 0.1);
+  border: 1px solid rgba(134, 155, 166, 0.2);
+  border-radius: 10px;
+}
+
+.recipe__content:hover {
+  border: 1px solid black;
+  background-color: rgba(134, 155, 166, 0.15);
+}
+
+.tag-btn {
+  margin-left: 10px;
+}
+
+.video-block {
+  justify-content: center;
+}
+.video {
+  display: flex;
+  justify-content: center;
+  background-color: #1A1A1C;
+  width: 650px;
+  border-radius: 10px;
+}
+
+.content-block-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+}
+
+.content-block {
+  width: 100%;
+}
+.content-block p {
+  justify-content: justify;
+  margin: 2px;
+}
+/* RECIPE END*/
+
+/* RECIPE FORM START*/
+.recipeSteps-block {
+  margin-bottom: 10px;
+  max-width: 100%;
+  margin-top: 20px;
+}
+
+.recipeSteps {
+  width: 700px;
+  max-width: 100%;
+}
+.recipeSteps td {
+  text-align: center;
+}
+.recipeSteps tr {
+  display: table-row;
+  text-align: center;
+}
+.recipeSteps textarea {
+  min-width: 500px;
+  width: 500px;
+  max-width: 500px;
+  min-height: 50px;
+  height: 100%;
+  max-height: 200px;
+}
+#recipe__description {
+  min-width: 300px;
+  max-width: 400px;
+  min-height: 75px;
+  max-height: 150px;
+}
+
+.table-text-input {
+  width: 200px;
+}
+
+.form-field textarea{
+  width: 500px;
+  height: 75px;
+  max-width: 100%;
+}
+
+.table-btn {
+  padding: 2px;
+  width: 100%;
+  color: white;
+  background-color: var(--primary-color);
+  border-radius: 5px;
+}
+.table-btn:hover {
+  background-color: #6B8A99;
+}
+
+.checkbox-list {
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.checkbox-component {
+  width: 110px;
+  display: flex;
+  align-items: center;
+}
+.checkbox-component input {
+  width: 20px;
+  margin: 0px;
+  margin-right: 10px;
+}
+/* RECIPE FROM END*/
+
+/* RECIPE DETAIL START*/
+.step-list {
+  padding-left: 20px;
+}
+.step-list li::marker {
+  color: var(--primary-color);
+}
+
+.step-text {
+  text-align: justify;
+  padding: 5px 0px 10px;
+}
+/* RECIPE DETAIL END*/
+
+/* PAGINATOR START*/
+.pagination {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.step-links a {
+    padding: 8px 12px;
+    margin: 0 4px;
+    color: var(--primary-color);
+    text-decoration: none;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+.step-links a:hover {
+    background-color: var(--accent-color);
+    color: #fff;
+}
+
+.current {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 4px;
+}
+
+/* PAGINATOR END*/
+
+/* EMPTY START*/
+.empty-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+}
+.empty-content p {
+  margin: 0px;
+  color: white;
+}
+.empty-content a,
+.empty-content a:visited {
+  margin: 0px;
+  color: white;
+  text-decoration: none;
+}
+/* EMPTY END*/
+
+/* S START*/
+/* S END*/
+
+
+/* MODAL START*/
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  display: none;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+.modal__main {
+  position: relative;
+  max-width: 1000px;
+  background-color: white;
+  margin: auto;
+  color: black;
+  border-radius: 10px;
+  padding: 30px;
+  cursor: default;
+}
+
+.modal__title {
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.modal__open {
+}
+
+.modal__close {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 22px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+}
+/* MODAL END*/
+
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
